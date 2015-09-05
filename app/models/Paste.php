@@ -169,9 +169,17 @@ class Paste extends Eloquent {
 		}
 
 		// Check if we have an attachment
-		if ($site->allowAttachment AND isset($data['attachment']) AND is_array($data['attachment']))
+		if ($site->allowAttachment AND isset($data['attachment']))
 		{
-			$attachment = empty($data['attachment'][0]) ? 0 : 1;
+			if( $data['attachment'] instanceof Symfony\Component\HttpFoundation\File\File ) 
+			{
+				$attachment_file = $data['attachment'];
+				$attachment = $attachment_file->isValid();
+			} 
+			else 
+			{
+				$attachment = 0;
+			}
 		}
 		else
 		{
