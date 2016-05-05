@@ -67,7 +67,7 @@ class CreateController extends BaseController {
 
 		// Define validation rules
 		$validator = Validator::make(Input::all(), array(
-			'title'      => 'max:30',
+			'title'      => 'max:75',
 			'data'       => 'required|auth|mbmax:'.$site->maxPasteSize,
 			'language'   => 'required|in:'.Highlighter::make()->languages(TRUE),
 			'expire'     => 'in:'.Paste::getExpiration('create', TRUE),

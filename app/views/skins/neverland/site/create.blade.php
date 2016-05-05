@@ -18,7 +18,7 @@
 				{{
 					Form::text('title', $paste->title, array(
 						'class'         => 'input-xlarge',
-						'maxlength'     => 30,
+						'maxlength'     => 75,
 						'placeholder'   => Lang::get('global.paste_title'),
 						'disabled'      => $disabled
 					))
